@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Your Name | Homepage</title>
+<meta name="description" content="Personal academic homepage of Your Name." />
+<style>
+  :root {
+    --bg: #ffffff;
+    --text: #1f2328;
+    --muted: #6a737d;
+    --accent: #2f6feb;
+    --accent-soft: #eaf1ff;
+    --border: #e6e8eb;
+    --card: #fafbfc;
+    --maxw: 880px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d1117;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --accent: #58a6ff;
+      --accent-soft: #16263f;
+      --border: #21262d;
+      --card: #161b22;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.65;
+    font-size: 16px;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+  /* Top nav */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: saturate(180%) blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; }
+  nav .brand { font-weight: 700; }
+  nav ul { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; }
+  nav ul a { color: var(--muted); font-size: 14px; font-weight: 500; }
+  nav ul a:hover { color: var(--accent); text-decoration: none; }
+
+  /* Hero */
+  header.hero { padding: 56px 0 32px; }
+  .hero-grid { display: grid; grid-template-columns: 180px 1fr; gap: 36px; align-items: start; }
+  .avatar {
+    width: 180px; height: 180px; border-radius: 16px; object-fit: cover;
+    border: 1px solid var(--border); background: var(--card);
+  }
+  .hero h1 { margin: 0 0 6px; font-size: 30px; }
+  .hero .role { color: var(--muted); margin: 0 0 14px; font-size: 16px; }
+  .hero p { margin: 0 0 14px; }
+  .links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+  .links a {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 6px 12px; border: 1px solid var(--border); border-radius: 999px;
+    font-size: 14px; color: var(--text); background: var(--card);
+  }
+  .links a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+
+  /* Sections */
+  section { padding: 28px 0; border-top: 1px solid var(--border); }
+  section h2 { font-size: 20px; margin: 0 0 18px; display: flex; align-items: center; gap: 10px; }
+  section h2::before { content: ""; width: 4px; height: 18px; background: var(--accent); border-radius: 2px; }
+
+  /* News */
+  .news { list-style: none; margin: 0; padding: 0; }
+  .news li { padding: 6px 0; display: flex; gap: 12px; }
+  .news .date {
+    flex: 0 0 auto; color: var(--accent); font-weight: 600; font-size: 13px;
+    background: var(--accent-soft); padding: 1px 8px; border-radius: 6px; height: fit-content;
+  }
+
+  /* Timeline (experiences/education) */
+  .timeline { position: relative; margin: 0; padding: 0 0 0 22px; list-style: none; }
+  .timeline::before { content: ""; position: absolute; left: 5px; top: 4px; bottom: 4px; width: 2px; background: var(--border); }
+  .timeline li { position: relative; padding: 0 0 18px 0; }
+  .timeline li::before { content: ""; position: absolute; left: -22px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); }
+  .timeline .when { color: var(--muted); font-size: 13px; }
+  .timeline .what { font-weight: 600; }
+  .timeline .where { color: var(--muted); }
+
+  /* Publications */
+  .pub { display: grid; grid-template-columns: 200px 1fr; gap: 18px; padding: 16px 0; border-bottom: 1px dashed var(--border); }
+  .pub:last-child { border-bottom: none; }
+  .pub img { width: 200px; height: 112px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border); background: var(--card); }
+  .pub .venue { display: inline-block; font-size: 12px; font-weight: 700; color: #fff; background: var(--accent); padding: 1px 8px; border-radius: 5px; margin-bottom: 6px; }
+  .pub .ptitle { font-weight: 600; margin: 0 0 4px; }
+  .pub .authors { color: var(--muted); font-size: 14px; margin: 0 0 6px; }
+  .pub .badges a { font-size: 13px; margin-right: 10px; }
+
+  footer { padding: 28px 0 48px; color: var(--muted); font-size: 13px; text-align: center; border-top: 1px solid var(--border); }
+
+  @media (max-width: 640px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 20px; text-align: center; }
+    .avatar { margin: 0 auto; }
+    .links { justify-content: center; }
+    .pub { grid-template-columns: 1fr; }
+    .pub img { width: 100%; height: auto; }
+    nav ul { gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <span class="brand">Haotian Dong</span>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#news">News</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#publications">Publications</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="about">
+  <div class="wrap hero-grid">
+    <img class="avatar" src="loopy6.png" alt="Your Name"
+         onerror="this.src='https://via.placeholder.com/180x180?text=Photo'" />
+    <div>
+      <h1>Haotian Dong (董浩天)</h1>
+      <p class="role">PhD Student  &middot; Tianjin University</p>
+      <p>
+        I am a second year PhD student at <a href="#">Tianjin University</a>, advised by
+        <a href="https://dilincv.github.io/">Dr. Di Lin</a>. My research interests is
+        <strong>video generation</strong>.
+      </p>
+      <p>Feel free to reach out for collaboration or a chat!</p>
+      <div class="links">
+        <a href="mailto:htdong@tju.edu.cn">✉ Email</a>
+        <a href="https://scholar.google.com/citations?user=tFiO2ggAAAAJ&hl=zh-CN">🎓 Google Scholar</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="news">
+    <h2>News</h2>
+    <ul class="news">
+      <li><span class="date">2026.06</span><span>One paper was accepted by <strong>TNNLS</strong>. 🎉</span></li>
+      <li><span class="date">2026.02</span><span>Two papers were accepted by <strong>CVPR 2026</strong>. 🎉</span></li>
+      <li><span class="date">2025</span><span>Started my research internship at <strong>Tencent WeChat</strong>.</span></li>
+      <li><span class="date">2025</span><span>One paper was accepted by <strong>ACM TOG 2025</strong>. 🎉</span></li>
+      <li><span class="date">2025</span><span>One paper was accepted by <strong>ICCV 2025</strong>. 🎉</span></li>
+      <li><span class="date">2025</span><span>One paper was accepted by <strong>ICLR 2025</strong>. 🎉</span></li>
+      <li><span class="date">2024.09</span><span>Enrolled at <strong>Tianjin University</strong> as a PhD student.</span></li>
+      <li><span class="date">2024</span><span>One paper was accepted by <strong>TMM 2024</strong>. 🎉</span></li>
+      <li><span class="date">2023</span><span>One paper was accepted by <strong>ICCV 2023</strong>. 🎉</span></li>
+      
+      <li><span class="date">2021.09</span><span>Enrolled at <strong>Tianjin University</strong> as a Master student.</span></li>
+    </ul>
+  </section>
+
+  <section id="experience">
+    <h2>Experience &amp; Education</h2>
+    <ul class="timeline">
+       <li>
+        <div class="when">2025.06 - Now</div>
+        <div class="what">Research Intern</div>
+        <div class="where">Tencen WeChat</div>
+      </li>
+      <li>
+        <div class="when">2024 – Now</div>
+        <div class="what">PhD Student in Computer Science</div>
+        <div class="where">Tianjin University &middot; advised by Prof. Advisor Di Lin</div>
+      </li>
+      <li>
+        <div class="when">2023 (Summer)</div>
+        <div class="what">Research Intern</div>
+        <div class="where">Alibaba</div>
+      </li>
+      <li>
+        <div class="when">2021 – 2024</div>
+        <div class="what">M.S. in Computer Science</div>
+        <div class="where">Tianjin University &middot; advised by Prof. Advisor Di Lin</div>
+      </li>
+       <li>
+        <div class="when">2017 – 2021</div>
+        <div class="what">B.S. in Computer Science</div>
+        <div class="where">Hebei University of Technology</div>
+      </li>
+    </ul>
+  </section>
+
+  <section id="publications">
+    <h2>Selected Publications</h2>
+    <p style="color:var(--muted);font-size:14px;margin-top:-8px;">(* denotes equal contribution)</p>
+
+    <div class="pub">
+      <img src="teaser.png" alt="Paper 1"
+           onerror="this.src='https://via.placeholder.com/200x112?text=Figure'" />
+      <div>
+        <span class="venue">CVPR 2026</span>
+        <p class="ptitle">Video Generation with Stable Transparency via Shiftable RGB-A Distribution Learner</p>
+        <p class="authors"><strong>Haotian Dong</strong>, Wenjing Wang, Chen Li, Jing Lyu, Di Lin</p>
+        <div class="badges">
+          <a href="https://openaccess.thecvf.com/content/CVPR2026/html/Dong_Video_Generation_with_Stable_Transparency_via_Shiftable_RGB-A_Distribution_Learner_CVPR_2026_paper.html">[Paper]</a><a href="https://github.com/WeChatCV/Wan-Alpha">[Code]</a><a href="https://donghaotian123.github.io/Wan-Alpha/">[Project]</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <img src="noisecontroller.png" alt="Paper 2"
+           onerror="this.src='https://via.placeholder.com/200x112?text=Figure'" />
+      <div>
+        <span class="venue">ICCV 2025</span>
+        <p class="ptitle">NoiseController: Towards consistent multi-view video generation via noise decomposition and collaboration</p>
+        <p class="authors"><strong>Haotian Dong</strong>, Xin Wang, Di Lin, Yipeng Wu, Qin Chen, Ruonan Liu, Kairui Yang, Ping Li, Qing Guo</p>
+        <div class="badges">
+          <a href="https://openaccess.thecvf.com/content/ICCV2025/html/Dong_NoiseController_Towards_Consistent_Multi-view_Video_Generation_via_Noise_Decomposition_and_ICCV_2025_paper.html">[Paper]</a><a href="https://github.com/TJU-IDVLab/NoiseController">[Code]</a>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    © <span id="year"></span> Your Name. Built with plain HTML/CSS, hosted on GitHub Pages.
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
