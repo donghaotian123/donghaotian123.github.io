@@ -71,6 +71,7 @@
     font-size: 14px; color: var(--text); background: var(--card);
   }
   .links a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+  .hero .opportunity { grid-column: 1 / -1; margin: 0; font-weight: 700; }
 
   /* Sections */
   section { padding: 28px 0; border-top: 1px solid var(--border); }
@@ -99,6 +100,7 @@
   .pub:last-child { border-bottom: none; }
   .pub img { width: 200px; height: 112px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border); background: var(--card); }
   .pub .venue { display: inline-block; font-size: 12px; font-weight: 700; color: #fff; background: var(--accent); padding: 1px 8px; border-radius: 5px; margin-bottom: 6px; }
+  .pub .venue + .venue { margin-left: 6px; }
   .pub .ptitle { font-weight: 600; margin: 0 0 4px; }
   .pub .authors { color: var(--muted); font-size: 14px; margin: 0 0 6px; }
   .pub .badges a { font-size: 13px; margin-right: 10px; }
@@ -137,16 +139,18 @@
       <h1>Haotian Dong (董浩天)</h1>
       <p class="role">PhD Student  &middot; Tianjin University</p>
       <p>
-        I am a second year PhD student at <a href="#">Tianjin University</a>, advised by
-        <a href="https://dilincv.github.io/">Dr. Di Lin</a>. My research interests is
+        I am a third year PhD student at <a href="#">Tianjin University</a>, advised by
+        <a href="https://dilincv.github.io/">Prof. Di Lin</a>. My research interests is
         <strong>video generation</strong>.
       </p>
       <p>Feel free to reach out for collaboration or a chat!</p>
       <div class="links">
-        <a href="mailto:htdong@tju.edu.cn">✉ Email</a>
+        <a href="mailto:htdong@tju.edu.cn">📧 htdong@tju.edu.cn</a>
+        <a href="main.pdf">📄 CV</a>
         <a href="https://scholar.google.com/citations?user=tFiO2ggAAAAJ&hl=zh-CN">🎓 Google Scholar</a>
       </div>
     </div>
+    <p class="opportunity">I am currently seeking internship opportunities in foundation models for video generation.</p>
   </div>
 </header>
 
@@ -155,10 +159,10 @@
   <section id="news">
     <h2>News</h2>
     <ul class="news">
-      <li><span class="date">2026.07</span><span>One paper was accepted by <strong>ACM TOG</strong>. 🎉</span></li>
-      <li><span class="date">2026.06</span><span>One paper was accepted by <strong>TNNLS</strong>. 🎉</span></li>
-      <li><span class="date">2026.02</span><span>Two papers were accepted by <strong>CVPR 2026</strong>. 🎉</span></li>
-      <li><span class="date">2025</span><span>Started my research internship at <strong>Tencent WeChat</strong>.</span></li>
+      <li><span class="date">2026.07</span><span>One paper was accepted by <strong>ACM TOG 2026</strong>. 🎉</span></li>
+      <li><span class="date">2026.06</span><span>One paper was accepted by <strong>TNNLS 2026</strong>. 🎉</span></li>
+      <li><span class="date">2026.02</span><span>Two papers were accepted by <strong>CVPR 2026</strong>, one of which received a <strong>Highlight Award</strong>. 🎉</span></li>
+      <li><span class="date">2025.06</span><span>Started my internship at <strong>Tencent WeChat</strong>, co-supervised by <a href="https://scholar.google.com/citations?user=JY6fBNoAAAAJ&hl=zh-CN/">Dr. Wenjing Wang</a>, <a href="https://scholar.google.com/citations?hl=en&user=3h57-9EAAAAJ&view_op=list_works&sortby=pubdate/">Dr. Xihua Wang</a>, Dr. Chen Li,and <a href="https://dilincv.github.io/">Prof. Di Lin</a></span></li>
       <li><span class="date">2025</span><span>One paper was accepted by <strong>ACM TOG 2025</strong>. 🎉</span></li>
       <li><span class="date">2025</span><span>One paper was accepted by <strong>ICCV 2025</strong>. 🎉</span></li>
       <li><span class="date">2025</span><span>One paper was accepted by <strong>ICLR 2025</strong>. 🎉</span></li>
@@ -175,7 +179,7 @@
     <ul class="timeline">
        <li>
         <div class="when">2025.06 - Now</div>
-        <div class="what">Research Intern</div>
+        <div class="what">Intern</div>
         <div class="where">Tencen WeChat</div>
       </li>
       <li>
@@ -185,7 +189,7 @@
       </li>
       <li>
         <div class="when">2023 (Summer)</div>
-        <div class="what">Research Intern</div>
+        <div class="what">Intern</div>
         <div class="where">Alibaba</div>
       </li>
       <li>
@@ -206,14 +210,27 @@
     <p style="color:var(--muted);font-size:14px;margin-top:-8px;">(* denotes equal contribution)</p>
 
     <div class="pub">
+      <img src="loopy.png" alt="Paper 1"
+           onerror="this.src='https://via.placeholder.com/200x112?text=Figure'" />
+      <div>
+        <span class="venue">ACM TOG 2026</span>
+        <p class="ptitle">Loopy: Seamless Video Loop Generation via Anchored Looping Shift of Positional Embedding</p>
+        <p class="authors"><strong>Haotian Dong</strong>, Wenjing Wang, Chen Li, Jing Lyu, Xin Wang, Di Lin</p>
+        <div class="badges">
+          <a href="https://arxiv.org/pdf/2608.23090">[Paper]</a><a href="https://github.com/WeChatCV/Wan-Alpha">[Code]</a><a href="https://donghaotian123.github.io/Wan-Alpha/">[Project]</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub">
       <img src="teaser.png" alt="Paper 1"
            onerror="this.src='https://via.placeholder.com/200x112?text=Figure'" />
       <div>
-        <span class="venue">CVPR 2026</span>
+        <span class="venue">CVPR 2026</span><span class="venue">Highlight</span>
         <p class="ptitle">Video Generation with Stable Transparency via Shiftable RGB-A Distribution Learner</p>
         <p class="authors"><strong>Haotian Dong</strong>, Wenjing Wang, Chen Li, Jing Lyu, Di Lin</p>
         <div class="badges">
-          <a href="https://openaccess.thecvf.com/content/CVPR2026/html/Dong_Video_Generation_with_Stable_Transparency_via_Shiftable_RGB-A_Distribution_Learner_CVPR_2026_paper.html">[Paper]</a><a href="https://github.com/WeChatCV/Wan-Alpha">[Code]</a><a href="https://donghaotian123.github.io/Wan-Alpha/">[Project]</a>
+          <a href="https://openaccess.thecvf.com/content/CVPR2026/html/Dong_Video_Generation_with_Stable_Transparency_via_Shiftable_RGB-A_Distribution_Learner_CVPR_2026_paper.html">[Paper]</a><a href="https://github.com/WeChatCV/Loopy">[Code]</a><a href="https://donghaotian123.github.io/Loopy/">[Project]</a>
         </div>
       </div>
     </div>
@@ -237,7 +254,7 @@
 
 <footer>
   <div class="wrap">
-    © <span id="year"></span> Your Name. Built with plain HTML/CSS, hosted on GitHub Pages.
+    © <span id="year"></span> Haotian Dong. All Rights Reserved.
   </div>
 </footer>
 
